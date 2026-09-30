@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aplicación de Tareas - Mi Lista de Pendientes</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="encabezado">
+      <h1>📝 Mi Lista de Tareas</h1>
+      <p class="subtitulo">Organiza tu día de forma simple y efectiva</p>
+    </header>
+
+    <main class="principal">
+      <!-- Sección de entrada de tareas -->
+      <section class="seccion-entrada">
+        <div class="grupo-entrada">
+          <input
+            type="text"
+            id="entrada-tarea"
+            class="entrada-tarea"
+            placeholder="Escribe una nueva tarea..."
+            autocomplete="off"
+          />
+          <button id="btn-agregar" class="boton boton-agregar">
+            ➕ Agregar
+          </button>
+        </div>
+        <div class="filtros">
+          <button class="filtro-btn filtro-activo" data-filtro="todas">
+            Todas (0)
+          </button>
+          <button class="filtro-btn" data-filtro="pendientes">
+            Pendientes (0)
+          </button>
+          <button class="filtro-btn" data-filtro="completadas">
+            Completadas (0)
+          </button>
+        </div>
+      </section>
+
+      <!-- Sección de lista de tareas -->
+      <section class="seccion-lista">
+        <div id="lista-tareas" class="lista-tareas">
+          <!-- Las tareas se generarán aquí con JavaScript -->
+        </div>
+
+        <!-- Mensaje cuando no hay tareas -->
+        <div id="mensaje-vacio" class="mensaje-vacio">
+          <p>📭 No hay tareas todavía. ¡Crea una nueva para comenzar!</p>
+        </div>
+      </section>
+
+      <!-- Sección de estadísticas -->
+      <section class="seccion-estadisticas">
+        <div class="estadistica">
+          <span class="label-estadistica">Total de tareas:</span>
+          <span id="stat-total" class="valor-estadistica">0</span>
+        </div>
+        <div class="estadistica">
+          <span class="label-estadistica">Completadas:</span>
+          <span id="stat-completadas" class="valor-estadistica">0</span>
+        </div>
+        <div class="estadistica">
+          <span class="label-estadistica">Pendientes:</span>
+          <span id="stat-pendientes" class="valor-estadistica">0</span>
+        </div>
+        <div class="estadistica">
+          <span class="label-estadistica">Progreso:</span>
+          <div class="barra-progreso">
+            <div id="barra-relleno" class="barra-relleno"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Botones de acción -->
+      <section class="seccion-acciones">
+        <button id="btn-limpiar" class="boton boton-secundario">
+          🗑️ Limpiar completadas
+        </button>
+        <button id="btn-vaciar" class="boton boton-peligro">
+          ⚠️ Vaciar todo
+        </button>
+        <button id="btn-exportar" class="boton boton-secundario">
+          📥 Descargar tareas
+        </button>
+      </section>
+    </main>
+
+    <footer class="pie">
+      <p>Creado con ❤️ | Los datos se guardan automáticamente en tu navegador</p>
+    </footer>
+  </div>
+
+  <!-- Modal para editar tarea -->
+  <div id="modal-editar" class="modal">
+    <div class="contenido-modal">
+      <div class="encabezado-modal">
+        <h2>Editar Tarea</h2>
+        <button id="btn-cerrar-modal" class="btn-cerrar">&times;</button>
+      </div>
+      <div class="cuerpo-modal">
+        <input
+          type="text"
+          id="entrada-editar"
+          class="entrada-tarea"
+          placeholder="Edita tu tarea..."
+        />
+      </div>
+      <div class="pie-modal">
+        <button id="btn-cancelar" class="boton boton-secundario">
+          Cancelar
+        </button>
+        <button id="btn-guardar-edicion" class="boton boton-agregar">
+          Guardar cambios
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="aplicacion.js"></script>
+</body>
+</html>
